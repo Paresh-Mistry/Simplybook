@@ -3,3 +3,6 @@
 
 # ingnoring settings.py 
 settings.py
+
+#ignoring media folder
+media

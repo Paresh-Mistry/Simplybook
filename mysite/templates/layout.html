@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <style>
+        /* Optional: Custom styles to make the hamburger icon better */
+        .menu-btn {
+            transition: transform 0.3s ease-in-out;
+        }
+        .menu-btn.open {
+            transform: rotate(90deg);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="bg-green-300 flex justify-between items-center p-3">
+            <div>
+                <h2>
+                    <a href="/" class="no-underline font-semibold">Simply&nbsp;Book</a>
+                </h2>
+            </div>
+            
+            <!-- Hamburger Button for mobile -->
+            <button class="block lg:hidden p-2 text-black menu-btn" id="hamburger-btn">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+            
+            <div class="hidden lg:flex gap-4">
+                <a href="/" class="text-black">Home</a>
+                <a href="/all_appointement" class="text-black">All Appointments</a>
+                <a href="/about" class="text-black">About Us</a>
+            </div>
+        </nav>
+        
+        <!-- Mobile Navigation (hidden by default) -->
+        <div id="mobile-nav" class="lg:hidden hidden p-4 bg-green-300">
+            <a href="/" class="block text-black py-2">Home</a>
+            <a href="/all_appointement" class="block text-black py-2">All Appointments</a>
+            <a href="/about" class="block text-black py-2">About Us</a>
+        </div>
+    </header>
+
+    <main>
+        {% block body %}{% endblock %}
+    </main>
+
+    <!-- JavaScript to Toggle Menu -->
+    <script>
+        const hamburgerBtn = document.getElementById("hamburger-btn");
+        const mobileNav = document.getElementById("mobile-nav");
+
+        hamburgerBtn.addEventListener("click", () => {
+            mobileNav.classList.toggle("hidden");
+            hamburgerBtn.classList.toggle("open");
+        });
+    </script>
+    
+</body>
+
+</html>

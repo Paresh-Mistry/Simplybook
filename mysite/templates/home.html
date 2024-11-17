@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+
+{% block title %} Home {% endblock %}
+
+{% block body %}
+
+<div class="">
+  <section class="bg-blue-100 py-20 px-1">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-5xl font-extrabold text-blue-600">Book Appointments with Ease</h1>
+      <p class="mt-4 text-lg text-gray-700">Schedule your appointments quickly and conveniently with our seamless
+        booking system.</p>
+    </div>
+  </section>
+
+  <section id="services" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 text-center">
+      <h3 class="text-3xl font-semibold text-gray-800 mb-8">Book Appointment with Mentors</h3>
+      <div class="overflow-x-auto overflow-y-hidden scrollbar-thin scrollbar-transparent">
+        <div class="flex gap-8 lg:justify-center">
+          {% if clients %}
+          {% for client in clients|slice:"0:5" %}
+          <a href="/book_apt/book_id={{client.id}}"
+            class="flex-shrink-0 w-64 transform hover:scale-105 transition-transform duration-300">
+            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl">
+              {% if client.photo %}
+              <img src="{{client.photo.url}}" class="rounded-full mx-auto w-36 h-36 shadow-lg" alt="Mentor photo">
+              {% else %}
+              <img src="https://t4.ftcdn.net/jpg/06/59/57/65/360_F_659576586_9CSUewJar5TZDkEMJu3qHVaPJmywlDn1.jpg" class="rounded-full mx-auto w-36 h-36 shadow-lg" alt="Mentor photo">
+              {% endif %}
+              <h4 class="text-2xl mt-4 font-semibold text-blue-600">{{client.firstname}}&nbsp;{{client.lastname}}</h4>
+              <p class="text-gray-500 mt-2">Experienced Mentor</p>
+            </div>
+          </a>
+          {% endfor %}
+          {% else %}
+          <p class="text-red-500 mx-auto">No Mentor Available for Appointement</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="bg-gray-100 py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h3 class="text-3xl font-semibold text-gray-800">What Our Clients Say</h3>
+      <p class="text-gray-600 mt-2 mb-10">We value feedback from our clients to continuously improve our services.</p>
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Testimonial Card 1 -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <p class="text-gray-700">"Excellent service! Booking was a breeze, and the consultation was very helpful."</p>
+          <h5 class="mt-4 font-semibold text-blue-600">- Jane Doe</h5>
+        </div>
+        <!-- Testimonial Card 2 -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <p class="text-gray-700">"A seamless experience from start to finish. Highly recommend!"</p>
+          <h5 class="mt-4 font-semibold text-blue-600">- John Smith</h5>
+        </div>
+        <!-- Testimonial Card 3 -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <p class="text-gray-700">"Quick and easy booking, and the session was really beneficial."</p>
+          <h5 class="mt-4 font-semibold text-blue-600">- Sarah Lee</h5>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action Section -->
+  <section id="contact" class="py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h3 class="text-3xl font-semibold text-gray-800">Ready to Book Your Appointment?</h3>
+      <p class="text-gray-600 mt-2">Take the first step by scheduling an appointment with us today.</p>
+    </div>
+  </section>
+</div>
+
+{% endblock %}

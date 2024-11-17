@@ -1,0 +1,36 @@
+{% extends "layout.html" %}\
+
+{% block title %}All&nbsp;Appointement{% endblock %}
+
+{% block body %}
+
+<section id="services" class="py-5 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <h3 class="text-3xl font-semibold px-2 text-gray-800 mb-8">All Book Appointments</h3>
+        <div class="grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 sm:grid-col-1 gap-8">
+            {% if clients %}
+            {% for client in clients %}
+            <a href="/book_apt/book_id={{client.id}}"
+                class="flex-shrink-0 md:w-64 w-full transform hover:scale-105 transition-transform duration-300">
+                <div class="bg-white p-6 rounded-lg text-center shadow-lg hover:shadow-xl">
+                    {% if client.photo %}
+                    <img src="{{client.photo.url}}" class="rounded-full mx-auto w-36 h-36 shadow-lg" alt="Mentor photo">
+                    {% else %}
+                    <img class="rounded-full mx-auto w-36 h-36 shadow-lg"
+                        src="https://t4.ftcdn.net/jpg/06/59/57/65/360_F_659576586_9CSUewJar5TZDkEMJu3qHVaPJmywlDn1.jpg"
+                        alt="Client image" />
+                    {% endif %}
+                    <h4 class="text-2xl mt-4 font-semibold text-blue-600">{{client.firstname}}&nbsp;{{client.lastname}}
+                    </h4>
+                    <p class="text-gray-500 mt-2">Experienced Mentor</p>
+                </div>
+            </a>
+            {% endfor %}
+            {% else %}
+            <p class="text-red-500 mx-auto">No Mentor Available for Appointement</p>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

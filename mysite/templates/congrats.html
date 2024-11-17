@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appointment Confirmation Offer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+  <div class="max-w-lg mx-auto mt-10 bg-white rounded-lg shadow-md overflow-hidden">
+    <!-- Header -->
+    <div class="bg-blue-600 text-white text-center py-6">
+      <h1 class="text-2xl font-bold">Appointment Confirmation</h1>
+    </div>
+
+    <!-- Content -->
+    <div class="p-6">
+      <p class="text-gray-700 text-lg">Dear <span class="font-semibold">{{user_email}}</span>,</p>
+      <p class="text-gray-700 mt-4">
+        We are pleased to inform you that we can offer you an appointment based on your request. Here are the details:
+      </p>
+      <ul class="list-disc list-inside mt-4 text-gray-700">
+        <li><strong>Date:</strong>{{date}}</li>
+        <li><strong>Time:</strong>{{time}}</li>
+        <li><strong>Location:</strong>{{client.address}}</li>
+      </ul>
+      <p class="text-gray-700 mt-4">
+        If the details above work for you, please confirm your appointment by clicking the button below:
+      </p>
+      <p class="text-gray-700 mt-6">
+        If you have any questions or need to reschedule, feel free to contact us.
+      </p>
+      <p class="text-gray-700 mt-4">
+        We look forward to seeing you!
+      </p>
+      <p class="text-gray-700 mt-4">
+        Best regards,<br>[Your Organization's Name]
+      </p>
+    </div>
+
+    <!-- Footer -->
+    <div class="bg-gray-100 text-center py-4 text-gray-500 text-sm">
+      <p>Need assistance? <a href="[Support Link]" class="text-blue-600 hover:underline">Contact Support</a></p>
+      <p>&copy; [Year] [Your Organization's Name]. All rights reserved.</p>
+    </div>
+  </div>
+</body>
+</html>

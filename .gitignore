@@ -6,3 +6,6 @@ settings.py
 
 #ignoring media folder
 media
+
+#ignoring pycache file
+__pycache__

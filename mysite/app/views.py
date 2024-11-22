@@ -61,21 +61,24 @@ def accept_appointment(request, id):
 
     messages.success(request, f"Appointment with has been accepted.")
 
-    html_message = render_to_string("congrats.html" , {
+    try:
+     html_message = render_to_string("congrats.html" , {
         "clients" : client,
         "user_email":user_email,
         "time":time,
         "date":date ,
         "purpose_booking":purpose_booking
-    })
+     })
 
-    send_mail(
+     send_mail(
         subject="Appointment has been Confirm",
         message="",
         from_email=client.email,
         recipient_list=[user_email],
         html_message=html_message
-    )
+     )
+    except Exception as e:
+        messages.error("Error while sending confirmation email : {}".format(e)) 
     return redirect('/')  
 
 

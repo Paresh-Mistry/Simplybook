@@ -6,6 +6,3 @@ settings.py
 
 #ignoring media folder
 media
-
-# ignoring database file
-db.sqlite3

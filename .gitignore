@@ -5,7 +5,8 @@
 settings.py
 
 #ignoring media folder
-media
+media/
 
-#ignoring pycache file
-__pycache__
+# Byte-compiled / optimized / compiled Python files
+__pycache__/
+*.py[cod]
